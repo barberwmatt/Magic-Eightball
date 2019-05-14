@@ -18,19 +18,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let random1 = Int.random( in: 0 ... 4)
-        imageView.image = UIImage(named: ballArray[random1])
+        changeBallImage()
     }
-
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        changeBallImage()
+    }
     
     
     @IBAction func buttonPressed(_ sender: Any) {
         
+        changeBallImage()
+    }
+    
+    func changeBallImage () {
+        
         let random1 = Int.random( in: 0 ... 4)
         imageView.image = UIImage(named: ballArray[random1])
     }
-    
-    
     
 }
 
